@@ -133,27 +133,27 @@ EOF
 }
 
 function CutCorners() {
- echo "+                               +                               +"
+ echo "+                                 +                                 +"
 }
 
 function InsertCover() {
   local sn=$(printf "%05d" $1)
   cat << EOF
 
-  +---------------------------+   +---------------------------+
-  |                           |   |                           |
-  |                           |   |                           |
-  |  ONE WAY ENCRYPTION PAD   |   |  ONE WAY ENCRYPTION PAD   |
-  |                           |   |                           |
-  |            IN             |   |           OUT             |
-  |                           |   |                           |
-  |         SN ${sn}          |   |         SN ${sn}          |
-  |                           |   |                           |
-  |                           |   |                           |
-  |       S E C R E T         |   |       S E C R E T         |
-  |                           |   |                           |
-  |                           |   |                           |
-  +---------------------------+   +---------------------------+
+   +---------------------------+     +---------------------------+
+   |                           |     |                           |
+   |                           |     |                           |
+   |  ONE WAY ENCRYPTION PAD   |     |  ONE WAY ENCRYPTION PAD   |
+   |                           |     |                           |
+   |            IN             |     |           OUT             |
+   |                           |     |                           |
+   |         SN ${sn}          |     |         SN ${sn}          |
+   |                           |     |                           |
+   |                           |     |                           |
+   |       S E C R E T         |     |       S E C R E T         |
+   |                           |     |                           |
+   |                           |     |                           |
+   +---------------------------+     +---------------------------+
 
 EOF
 }
@@ -161,19 +161,19 @@ EOF
 function InsertBasic() {
   cat << EOF
 
-    |                               |
-    | 0  1  2  3  4  5              | 0  1  2  3  4  5
-   -+-------------------------     -+-------------------------
-   0| A  K  U  0  .  +             0| A  K  U  0  .  +
-   1| B  L  V  1  ,  -             1| B  L  V  1  ,  -
-   2| C  M  W  2  ?  =             2| C  M  W  2  ?  =
-   3| D  N  X  3  :                3| D  N  X  3  :
-   4| E  O  Y  4  ;   00 SPC       4| E  O  Y  4  ;   00 SPC
-   5| F  P  Z  5  "                5| F  P  Z  5  "
-   6| G  Q     6  '   99 CODE      6| G  Q     6  '   99 CODE
-   7| H  R     7  /                7| H  R     7  /
-   8| I  S     8  (                8| I  S     8  (
-   9| J  T     9  )                9| J  T     9  )
+     |                                 |
+     | 0  1  2  3  4  5                | 0  1  2  3  4  5
+    -+-------------------------       -+-------------------------
+    0| A  K  U  0  .  +               0| A  K  U  0  .  +
+    1| B  L  V  1  ,  -               1| B  L  V  1  ,  -
+    2| C  M  W  2  ?  =               2| C  M  W  2  ?  =
+    3| D  N  X  3  :                  3| D  N  X  3  :
+    4| E  O  Y  4  ;   00 SPC         4| E  O  Y  4  ;   00 SPC
+    5| F  P  Z  5  "                  5| F  P  Z  5  "
+    6| G  Q     6  '   99 CODE        6| G  Q     6  '   99 CODE
+    7| H  R     7  /                  7| H  R     7  /
+    8| I  S     8  (                  8| I  S     8  (
+    9| J  T     9  )                  9| J  T     9  )
 
 EOF
 }
@@ -181,19 +181,19 @@ EOF
 function InsertStdTblNo1() {
   cat << EOF
 
-    |  LETTERS   |   | NUMBER       |  LETTERS   |   | NUMBER
-    |     7   8  | 9 |  NN          |     7   8  | 9 |  NN
-   -+-------------------------     -+-------------------------
-   0|CODE B   P  |FIG|  0          0|CODE B   P  |FIG|  0
-   1| A   C   Q  | . |  1          1| A   C   Q  | . |  1
-   2| E   D   R  | : |  2          2| E   D   R  | : |  2
-   3| I   F   S  | ' |  3          3| I   F   S  | ' |  3
-   4| N   G   U  |() |  4          4| N   G   U  |() |  4
-   5| O   H   V  | + |  5          5| O   H   V  | + |  5
-   6| T   J   W  | - |  6          6| T   J   W  | - |  6
-   7|     K   X  | = |  7          7|     K   X  | = |  7
-   8|     L   Y  |REQ|  8          8|     L   Y  |REQ|  8
-   9|     M   Z  |SPC|  9          9|     M   Z  |SPC|  9
+     |  LETTERS   |   | NUMBER         |  LETTERS   |   | NUMBER
+     |     7   8  | 9 |  NN            |     7   8  | 9 |  NN
+    -+-------------------------       -+-------------------------
+    0|CODE B   P  |FIG|  0            0|CODE B   P  |FIG|  0
+    1| A   C   Q  | . |  1            1| A   C   Q  | . |  1
+    2| E   D   R  | : |  2            2| E   D   R  | : |  2
+    3| I   F   S  | ' |  3            3| I   F   S  | ' |  3
+    4| N   G   U  |() |  4            4| N   G   U  |() |  4
+    5| O   H   V  | + |  5            5| O   H   V  | + |  5
+    6| T   J   W  | - |  6            6| T   J   W  | - |  6
+    7|     K   X  | = |  7            7|     K   X  | = |  7
+    8|     L   Y  |REQ|  8            8|     L   Y  |REQ|  8
+    9|     M   Z  |SPC|  9            9|     M   Z  |SPC|  9
 
 EOF
 }
@@ -201,19 +201,19 @@ EOF
 function InsertCT37() {
   cat << EOF
 
-    |  LETTERS   |                  |  LETTERS   |
-    |     7   8  | 9                |     7   8  | 9
-   -+-------------------------     -+-------------------------
-   0| E   B   P  |SPC              0| E   B   P  |SPC
-   1| S   C   Q  | .               1| S   C   Q  | .
-   2| T   D   R  | ,               2| T   D   R  | ,
-   3| O   F   U  | '               3| O   F   U  | '
-   4| N   G   V  | ?               4| N   G   V  | ?
-   5| I   H   W  | /               5| I   H   W  | /
-   6| A   J   X  | +               6| A   J   X  | +
-   7|     K   Y  | -               7|     K   Y  | -
-   8|     L   Z  | "               8|     L   Z  | "
-   9|     M  FIG |CODE             9|     M  FIG |CODE
+     |  LETTERS   |                    |  LETTERS   |
+     |     7   8  | 9                  |     7   8  | 9
+    -+-------------------------       -+-------------------------
+    0| E   B   P  |SPC                0| E   B   P  |SPC
+    1| S   C   Q  | .                 1| S   C   Q  | .
+    2| T   D   R  | ,                 2| T   D   R  | ,
+    3| O   F   U  | '                 3| O   F   U  | '
+    4| N   G   V  | ?                 4| N   G   V  | ?
+    5| I   H   W  | /                 5| I   H   W  | /
+    6| A   J   X  | +                 6| A   J   X  | +
+    7|     K   Y  | -                 7|     K   Y  | -
+    8|     L   Z  | "                 8|     L   Z  | "
+    9|     M  FIG |CODE               9|     M  FIG |CODE
 
 EOF
 }
@@ -221,19 +221,19 @@ EOF
 function InsertCT46() {
   cat << EOF
 
-    |  LETTERS   |    | NUM         |  LETTERS   |    | NUM
-    |     7   8  | 9  | 0           |     7   8  | 9  | 0
-   -+-------------------------     -+--------------------------
-   0|     B   P  |SPC | 0          0|     B   P  |SPC | 0
-   1| A   C   Q  | .  | 1          1| A   C   Q  | .  | 1
-   2| E   D   S  | ,  | 2          2| E   D   S  | ,  | 2
-   3| I   F   T  | :  | 3          3| I   F   T  | :  | 3
-   4| N   G   U  | ?  | 4          4| N   G   U  | ?  | 4
-   5| O   H   V  | /  | 5          5| O   H   V  | /  | 5
-   6| R   J   W  | (  | 6          6| R   J   W  | (  | 6
-   7|     K   X  | )  | 7          7|     K   X  | )  | 7
-   8|     L   Y  | "  | 8          8|     L   Y  | "  | 8
-   9|     M   Z  |CODE| 9          9|     M   Z  |CODE| 9
+     |  LETTERS   |    | NUM           |  LETTERS   |    | NUM
+     |     7   8  | 9  | 0             |     7   8  | 9  | 0
+    -+-------------------------       -+--------------------------
+    0|     B   P  |SPC | 0            0|     B   P  |SPC | 0
+    1| A   C   Q  | .  | 1            1| A   C   Q  | .  | 1
+    2| E   D   S  | ,  | 2            2| E   D   S  | ,  | 2
+    3| I   F   T  | :  | 3            3| I   F   T  | :  | 3
+    4| N   G   U  | ?  | 4            4| N   G   U  | ?  | 4
+    5| O   H   V  | /  | 5            5| O   H   V  | /  | 5
+    6| R   J   W  | (  | 6            6| R   J   W  | (  | 6
+    7|     K   X  | )  | 7            7|     K   X  | )  | 7
+    8|     L   Y  | "  | 8            8|     L   Y  | "  | 8
+    9|     M   Z  |CODE| 9            9|     M   Z  |CODE| 9
 
 EOF
 }
@@ -241,19 +241,19 @@ EOF
 function InsertCT55() {
   cat << EOF
 
-    |  LETTERS   |L/F |  FIG        |  LETTERS   |L/F |  FIG
-    |     7   8  | 9  | 8   N       |     7   8  | 9  | 8   N
-   -+-------------------------     -+------------------------- 
-   0| A   B   P  |SPC | ?   0      0| A   B   P  |SPC | ?   0
-   1| E   C   Q  |CODE| !   1      1| E   C   Q  |CODE| !   1
-   2| I   D   R  |RPT | /   2      2| I   D   R  |RPT | /   2
-   3| N   F   U  |(.) | +   3      3| N   F   U  |(.) | +   3
-   4| O   G   V  |(,) | -   4      4| O   G   V  |(,) | -   4
-   5| S   H   W  |(') | *   5      5| S   H   W  |(') | *   5
-   6| T   J   X  |(:) | =   6      6| T   J   X  |(:) | =   6
-   7|     K   Y  | (  | ^   7      7|     K   Y  | (  | ^   7
-   8|     L   Z  | )  |     8      8|     L   Z  | )  |     8
-   9|     M  L/F |    | L/F 9      9|     M  L/F |    | L/F 9
+     |  LETTERS   |L/F |  FIG          |  LETTERS   |L/F |  FIG
+     |     7   8  | 9  | 8   N         |     7   8  | 9  | 8   N
+    -+-------------------------       -+------------------------- 
+    0| A   B   P  |SPC | ?   0        0| A   B   P  |SPC | ?   0
+    1| E   C   Q  |CODE| !   1        1| E   C   Q  |CODE| !   1
+    2| I   D   R  |RPT | /   2        2| I   D   R  |RPT | /   2
+    3| N   F   U  |(.) | +   3        3| N   F   U  |(.) | +   3
+    4| O   G   V  |(,) | -   4        4| O   G   V  |(,) | -   4
+    5| S   H   W  |(') | *   5        5| S   H   W  |(') | *   5
+    6| T   J   X  |(:) | =   6        6| T   J   X  |(:) | =   6
+    7|     K   Y  | (  | ^   7        7|     K   Y  | (  | ^   7
+    8|     L   Z  | )  |     8        8|     L   Z  | )  |     8
+    9|     M  L/F |    | L/F 9        9|     M  L/F |    | L/F 9
 
 EOF
 }
@@ -270,20 +270,20 @@ function InsertCard() {
 
   cat << EOF
 
-             IN ${n}                       OUT ${n}
+              IN ${n}                         OUT ${n}
 
-  ${pad[0]} ${pad[1]} ${pad[2]} ${pad[3]} ${pad[4]}   ${pad[0]} ${pad[1]} ${pad[2]} ${pad[3]} ${pad[4]}
-  ${pad[5]} ${pad[6]} ${pad[7]} ${pad[8]} ${pad[9]}   ${pad[5]} ${pad[6]} ${pad[7]} ${pad[8]} ${pad[9]}
-  ${pad[10]} ${pad[11]} ${pad[12]} ${pad[13]} ${pad[14]}   ${pad[10]} ${pad[11]} ${pad[12]} ${pad[13]} ${pad[14]}
-  ${pad[15]} ${pad[16]} ${pad[17]} ${pad[18]} ${pad[19]}   ${pad[15]} ${pad[16]} ${pad[17]} ${pad[18]} ${pad[19]}
-  ${pad[20]} ${pad[21]} ${pad[22]} ${pad[23]} ${pad[24]}   ${pad[20]} ${pad[21]} ${pad[22]} ${pad[23]} ${pad[24]}
-  ${pad[25]} ${pad[26]} ${pad[27]} ${pad[28]} ${pad[29]}   ${pad[25]} ${pad[26]} ${pad[27]} ${pad[28]} ${pad[29]}
-  ${pad[30]} ${pad[31]} ${pad[32]} ${pad[33]} ${pad[34]}   ${pad[30]} ${pad[31]} ${pad[32]} ${pad[33]} ${pad[34]}
-  ${pad[35]} ${pad[36]} ${pad[37]} ${pad[38]} ${pad[39]}   ${pad[35]} ${pad[36]} ${pad[37]} ${pad[38]} ${pad[39]}
-  ${pad[40]} ${pad[41]} ${pad[42]} ${pad[43]} ${pad[44]}   ${pad[40]} ${pad[41]} ${pad[42]} ${pad[43]} ${pad[44]}
-  ${pad[45]} ${pad[46]} ${pad[47]} ${pad[48]} ${pad[49]}   ${pad[45]} ${pad[46]} ${pad[47]} ${pad[48]} ${pad[49]}
+  A ${pad[0]} ${pad[1]} ${pad[2]} ${pad[3]} ${pad[4]}   A ${pad[0]} ${pad[1]} ${pad[2]} ${pad[3]} ${pad[4]}
+  B ${pad[5]} ${pad[6]} ${pad[7]} ${pad[8]} ${pad[9]}   B ${pad[5]} ${pad[6]} ${pad[7]} ${pad[8]} ${pad[9]}
+  C ${pad[10]} ${pad[11]} ${pad[12]} ${pad[13]} ${pad[14]}   C ${pad[10]} ${pad[11]} ${pad[12]} ${pad[13]} ${pad[14]}
+  D ${pad[15]} ${pad[16]} ${pad[17]} ${pad[18]} ${pad[19]}   D ${pad[15]} ${pad[16]} ${pad[17]} ${pad[18]} ${pad[19]}
+  E ${pad[20]} ${pad[21]} ${pad[22]} ${pad[23]} ${pad[24]}   E ${pad[20]} ${pad[21]} ${pad[22]} ${pad[23]} ${pad[24]}
+  F ${pad[25]} ${pad[26]} ${pad[27]} ${pad[28]} ${pad[29]}   F ${pad[25]} ${pad[26]} ${pad[27]} ${pad[28]} ${pad[29]}
+  G ${pad[30]} ${pad[31]} ${pad[32]} ${pad[33]} ${pad[34]}   G ${pad[30]} ${pad[31]} ${pad[32]} ${pad[33]} ${pad[34]}
+  H ${pad[35]} ${pad[36]} ${pad[37]} ${pad[38]} ${pad[39]}   H ${pad[35]} ${pad[36]} ${pad[37]} ${pad[38]} ${pad[39]}
+  I ${pad[40]} ${pad[41]} ${pad[42]} ${pad[43]} ${pad[44]}   I ${pad[40]} ${pad[41]} ${pad[42]} ${pad[43]} ${pad[44]}
+  J ${pad[45]} ${pad[46]} ${pad[47]} ${pad[48]} ${pad[49]}   J ${pad[45]} ${pad[46]} ${pad[47]} ${pad[48]} ${pad[49]}
 
-        DESTROY AFTER USE               DESTROY AFTER USE
+          DESTROY AFTER USE                 DESTROY AFTER USE
 
 EOF
 }
