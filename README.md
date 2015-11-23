@@ -105,29 +105,26 @@ Pads generated with page numbers, both in and out copies in a run. Cut down the 
 2. Using an agreed upon checkerboard, convert your Clear text to a sequence of numbers.
 3. In groups of 5 characters, line up Clear Text and Pad.
 
-    Clear:   12345 67890
-    Pad:     01928 49285
+        Clear:   12345 67890
+        Pad:     01928 49285
 
 4. To encrypt subtract Pad from Clear Text without borrowing (5 - 9 = 6, not 15 - 9)
 
-      Clear:   12345 67890
-    - Pad:     01928 49285
-    ---------------------
-    Cipher:    11427 28515
+        Clear:    12345 67890
+        Pad:    - 01928 49285
+        Cipher:   11427 28515
 
 5. To decrypt add Pad to Cipher without carring (6 + 9 = 5, not 15)
 
-      Cipher:  11427 28515
-    + Pad:     01928 49285
-    ---------------------
-    Clear:     12345 67890
+        Cipher:   11427 28515
+        Pad:    + 01928 49285
+        Clear:    12345 67890
 
 6. First 5 digits of Cipher text should be the Page Number of the pad used. Be
 sure to destroy it after use.
 
-      00001 11427 28515
-      -----------------
-      Page# Cipher.....
+          00001 11427 28515
+          Page# Cipher.....
 
 # Good Practices
 
