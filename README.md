@@ -26,8 +26,6 @@ padgen can generate checkboard layouts both in a larger format:
     |  90   91   92   93   94   95   96   97   98   99  |
     -----------------------------------------------------
 
-as well as in a one time pad printout:
-
     +                               +
    
         |  LETTERS   |   | NUMBER    
@@ -50,56 +48,63 @@ Pads generated with page numbers, both in and out copies in a run. Cut down the 
 
 # Usage
 
-    usage: padgen.sh [OPTIONS]
-    
-        -h, --help    Display this info
-    
-        -v, --version Display version number
-    
-      Checkerboard
-    
-        -cb TYPE      Print Checkerboard
-    
-            Types:
-                Basic    Basic board with no condensed letters.
-                         Two numbers per character, Code, Space
-                         and 12 punctuation.
-    
-                StdTbl   Standard Table No. 1. 6 condensed characters
-                         7 punctuation. Numbers enabled using FIG and
-                         questions enabled using REQ.
-    
-                CT37     CT-37
-    
-                CT46     CT-46
-    
-                CT55     CT-55
-    
-      Pad
-    
-        -p, --pad     Print One Time Pads, additional options
-    
-        -f FILE       Source of random data. Stdin set with "-"
-                      and defaults to /dev/urandom.
-    
-        -sn NUM       Serial Number. This define the id for the
-                      entire pad. Default 0.
-    
-        -idx NUM      Index. This defines the id of an individual
-                      page. Each new page increments. Default 0
-    
-        -cnt NUM      Count. This defines the number of pages to
-                      include in the pad. Default 1.
-    
-        -t            Disable title card
-    
-        -cb TYPE      Insert a small Checkerboard into each set of
-                      cards.
-    
+```
+usage: padgen.sh [OPTIONS]
 
-# Instructions
+    -h, --help    Display this info
 
-**TODO:** Make this section better
+    -v, --version Display version number
+
+  Checkerboard
+
+    -cb TYPE      Print Checkerboard
+
+        Types:
+            Basic    Basic board with no condensed letters.
+                      Two numbers per character, Code, Space
+                      and 12 punctuation.
+
+            StdTbl   Standard Table No. 1. 6 condensed characters
+                      7 punctuation. Numbers enabled using FIG and
+                      questions enabled using REQ.
+
+            CT37     CT-37
+
+            CT46     CT-46
+
+            CT55     CT-55
+
+  Pad
+
+    -p, --pad     Print One Time Pads, additional options
+
+    -f FILE       Source of random data. Stdin set with "-"
+                  and defaults to /dev/urandom.
+
+    -sn NUM       Serial Number. This define the id for the
+                  entire pad. Default 0.
+
+    -idx NUM      Index. This defines the id of an individual
+                  page. Each new page increments. Default 0
+
+    -cnt NUM      Count. This defines the number of pages to
+                  include in the pad. Default 1.
+
+    -t            Disable title card
+
+    -cb TYPE      Insert a small Checkerboard into each set of
+                    cards.
+
+  Manual Pad
+
+    -m, --manual  Print Manual One Time Pads, additional options
+
+    -t            Disable title card
+
+    -cb TYPE      Insert a Checkerboard into the set of cards
+```
+
+# Encrypt / Decrypt
 
 1. Print Pad, cut in half. IN is used to encrypt and OUT is used to decrypt.
 2. Using an agreed upon checkerboard, convert your Clear text to a sequence of numbers.
@@ -126,12 +131,56 @@ sure to destroy it after use.
           00001 11427 28515
           Page# Cipher.....
 
+## Checkerboard Encoding
+
+The checkerboard allows you to encode your message into a sequence of numbers,
+which makes encryption much easier to do by hand. Both sides must agree to
+which board to use, each letter/symbol converts to a single or double digit
+number.
+
+    -----------------------------------------------------
+    | CODE  A    E    I    N    O    T    | STANDARD    |
+    |  0    1    2    3    4    5    6    | TABLE No. 1 |
+    |---------------------------------------------------|
+    |  B    C    D    F    G    H    J    K    L    M   |
+    |  70   71   72   73   74   75   76   77   78   79  |
+    |---------------------------------------------------|
+    |  P    Q    R    S    U    V    W    X    Y    Z   |
+    |  80   81   82   83   84   85   86   87   88   89  |
+    |---------------------------------------------------|
+    |  FIG  .    :    '    ()   +    -    =    REQ  SPC |
+    |  90   91   92   93   94   95   96   97   98   99  |
+    -----------------------------------------------------
+
+As an example, the top row of letters are represented by single digit numbers.
+The word `DAWN` converts to `721864`
+
+- A = 1
+- T = 6
+- Space = 99
+- D = 72
+- A = 1
+- W = 86
+- N = 4
+
+Numbers are written by first using the `FIG` command, and each digit is printed
+in triplicate and ending with `FIG`. `2017` is converted to
+`90 222 000 111 777 90`. Some boards have `L/F` which operates the same as `FIG`.
+
+`CODE` is used when both parties have a code book of common words. Lets say
+your code book has the word `ABORT` with the value `123`. Encoding `ABORT NOW`
+would be `0 123 99 4 5 86`
+
+Some common codes for on boards are `SPC` (space), `REQ` (request), `RPT` (repeat)
+
 # Good Practices
 
 Be sure to use a good RNG source. For example a [Raspberry Pi's Hardware RNG][2]
 or a USB Hardware RNG.
 
-Make sure to keep all outputs from this script either in files on a `tempfs` partition or pipe all output directly to your printer so no copy ever is written to disk.
+Make sure to keep all outputs from this script either in files on a `tempfs`
+partition or pipe all output directly to your printer so no copy ever is
+written to disk.
 
     ./padgen.sh -p | lp
 
@@ -144,6 +193,10 @@ people to communicate this means you need to print out two different pads.
 Person A's IN pad matches person B's OUT pad. This way if both are sending
 messages there should be no accidental reuse of any pad since each one only has
 an IN or an OUT from a given pad, but not both.
+
+If you don't feel comfortable using computer generated random numbers, you can
+use he `-m` flag to generate a blank pad and use some 10 sided dice to generate
+your pad.
 
 [1]: http://users.telenet.be/d.rijmenants/en/numbersgen.htm
 [2]: https://wiki.gentoo.org/wiki/Raspberry_Pi/Quick_Install_Guide#Hardware_Random_Number_Generator
