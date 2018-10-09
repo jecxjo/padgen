@@ -168,16 +168,16 @@ function InsertBasic() {
      |                                 |
      | 0  1  2  3  4  5                | 0  1  2  3  4  5
     -+-------------------------       -+-------------------------
-    0| A  K  U  0  .  +               0| A  K  U  0  .  +
-    1| B  L  V  1  ,  -               1| B  L  V  1  ,  -
-    2| C  M  W  2  ?  =               2| C  M  W  2  ?  =
-    3| D  N  X  3  :                  3| D  N  X  3  :
-    4| E  O  Y  4  ;   00 SPC         4| E  O  Y  4  ;   00 SPC
-    5| F  P  Z  5  "                  5| F  P  Z  5  "
-    6| G  Q     6  '   99 CODE        6| G  Q     6  '   99 CODE
-    7| H  R     7  /                  7| H  R     7  /
-    8| I  S     8  (                  8| I  S     8  (
-    9| J  T     9  )                  9| J  T     9  )
+    0|    J  T  0  .  +               0|    J  T  0  .  +
+    1| A  K  U  1  ,  -               1| A  K  U  1  ,  -
+    2| B  L  V  2  ?  =               2| B  L  V  2  ?  =
+    3| C  M  W  3  :                  3| C  M  W  3  :
+    4| D  N  X  4  ;   00 SPC         4| D  N  X  4  ;   00 SPC
+    5| E  O  Y  5  "                  5| E  O  Y  5  "
+    6| F  P  Z  6  '   99 CODE        6| F  P  Z  6  '   99 CODE
+    7| G  Q     7  /                  7| G  Q     7  /
+    8| H  R     8  (                  8| H  R     8  (
+    9| I  S     9  )                  9| I  S     9  )
 
 EOF
 }
