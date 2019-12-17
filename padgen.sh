@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Jeff (jeff@commentedcode.org)
 #       CREATED: 11/19/2015 23:15
-#      REVISION:  0.1
+#      REVISION:  0.2
 #       LICENSE: BSD-3
 #===============================================================================
 
@@ -22,11 +22,11 @@ set -o nounset                              # Treat unset variables as an error
 function Generate5() {
   if [[ "${RAND_SRC}" == "-" ]]
   then
-    dd iflag=skip_bytes skip=${OFFSET} bs=1 count=5 status=none | \
+    dd skip=${OFFSET} bs=1 count=5 2>&1 1>/dev/null | \
     od -vAn -N5 -tu1 | \
     awk '{print ($1 % 10)($2 % 10)($3 % 10)($4 % 10)($5 % 10);}'
   else
-    dd iflag=skip_bytes skip=${OFFSET} bs=1 count=5 status=none if="${RAND_SRC}" | \
+    dd  skip=${OFFSET} bs=1 count=5 if="${RAND_SRC}" 2>&1 1>/dev/null | \
     od -vAn -N5 -tu1 | \
     awk '{print ($1 % 10)($2 % 10)($3 % 10)($4 % 10)($5 % 10);}'
   fi
@@ -354,7 +354,7 @@ function ErrExit() {
 }
 
 # MAIN
-VERSION=0.1
+VERSION=0.2
 
 RAND_SRC=/dev/urandom
 CB_TYPE=None
