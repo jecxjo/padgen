@@ -1,6 +1,8 @@
 # padgen
 Printable One Time Pad generatator written in BASH.
 
+**NOTE** MOVING FROM GITHUB!!! The new locaiton for this project is : https://git.sh0.xyz/padgen.git/
+
 Using your system's random number generator (which should be a hardware, true
 random number generator) or a source file, padgen can create simple printable
 one time pads.
